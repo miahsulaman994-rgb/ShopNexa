@@ -22,67 +22,60 @@ footer{text-align:center;padding:30px 15px;color:#687386}
 </head>
 <body>
 <header>
-  <div class="top">
-    <div class="logo">Shop<span>Nexa</span></div>
-    <input id="search" class="search" placeholder="পণ্য খুঁজুন...">
-  </div>
-  <nav>
-    <button>হোম</button><button>Trending Deals</button><button>Electronics</button><button>Fashion</button><button>Home & Kitchen</button>
-  </nav>
+<div class="top">
+<div class="logo">Shop<span>Nexa</span></div>
+<input id="search" class="search" placeholder="পণ্য খুঁজুন...">
+</div>
+<nav>
+<button>হোম</button><button>Trending Deals</button><button>Electronics</button><button>Fashion</button><button>Home & Kitchen</button>
+</nav>
 </header>
-
 <section class="hero">
-  <h1>Shop Smart<br><span style="color:#ffb71b">Live Better</span></h1>
-  <p>Amazon-এর জনপ্রিয় পণ্য এক জায়গায় খুঁজে নিন। পছন্দের পণ্যে ক্লিক করে Amazon-এ কিনুন।</p>
-  <button class="btn" onclick="document.getElementById('products').scrollIntoView()">Shop Now →</button>
+<h1>Shop Smart<br><span style="color:#ffb71b">Live Better</span></h1>
+<p>Amazon-এর জনপ্রিয় পণ্য এক জায়গায় খুঁজে নিন। পছন্দের পণ্যে ক্লিক করে Amazon-এ কিনুন।</p>
+<button class="btn" onclick="document.getElementById('products').scrollIntoView()">Shop Now →</button>
 </section>
-
 <section class="section">
-  <div class="section-head"><h2>🔥 Today's Best Deals</h2></div>
-  <div id="products" class="grid"></div>
+<div class="section-head"><h2>🔥 Today's Best Deals</h2></div>
+<div id="products" class="grid"></div>
 </section>
-
 <section class="admin">
-  <h2>➕ নতুন পণ্য যোগ করুন</h2>
-  <p class="notice">এই ডেমোতে পণ্য আপনার এই ব্রাউজারের Local Storage-এ সেভ হবে। আসল অনলাইন Admin Panel-এর জন্য পরে database/hosting যুক্ত করতে হবে।</p>
-  <input id="name" placeholder="পণ্যের নাম">
-  <div class="row">
-    <input id="price" placeholder="দাম (যেমন $39.99)">
-    <input id="image" placeholder="ছবির URL">
-  </div>
-  <input id="link" placeholder="আপনার Amazon Affiliate Link">
-  <textarea id="desc" placeholder="ছোট বিবরণ (ঐচ্ছিক)"></textarea>
-  <button class="btn" onclick="addProduct()">পণ্য যোগ করুন</button>
-  <button class="btn" style="background:#e8edf4;margin-left:6px" onclick="clearProducts()">সব ডেমো পণ্য মুছুন</button>
+<h2>➕ নতুন পণ্য যোগ করুন</h2>
+<p class="notice">এই ডেমোতে পণ্য আপনার এই ব্রাউজারের Local Storage-এ সেভ হবে।</p>
+<input id="name" placeholder="পণ্যের নাম">
+<div class="row">
+<input id="price" placeholder="দাম (যেমন $39.99)">
+<input id="image" placeholder="ছবির URL">
+</div>
+<input id="link" placeholder="আপনার Amazon Affiliate Link">
+<textarea id="desc" placeholder="ছোট বিবরণ (ঐচ্ছিক)"></textarea>
+<button class="btn" onclick="addProduct()">পণ্য যোগ করুন</button>
+<button class="btn" style="background:#e8edf4;margin-left:6px" onclick="clearProducts()">সব ডেমো পণ্য মুছুন</button>
 </section>
-
 <footer>
-  <b>ShopNexa</b><br>Smart Shopping • Better Choices<br><small>Affiliate disclosure: Amazon থেকে যোগ্য কেনাকাটায় ShopNexa কমিশন পেতে পারে।</small>
+<b>ShopNexa</b><br>Smart Shopping • Better Choices<br><small>Affiliate disclosure: Amazon থেকে যোগ্য কেনাকাটায় ShopNexa কমিশন পেতে পারে।</small>
 </footer>
-
 <script>
+const AFFILIATE_LINK = "https://amzn.to/4rGGCtf";
 const defaultProducts=[
-{name:"Wireless Earbuds",price:"$39.99",image:"https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=600",link:"#",desc:"জনপ্রিয় wireless earbuds"},
-{name:"Smart Watch",price:"$79.99",image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600",link:"#",desc:"স্টাইলিশ স্মার্ট ওয়াচ"},
-{name:"Laptop",price:"$499.99",image:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600",link:"#",desc:"দৈনন্দিন কাজের জন্য ল্যাপটপ"},
-{name:"Air Fryer",price:"$89.99",image:"https://images.unsplash.com/photo-1585515320310-259814833e62?w=600",link:"#",desc:"সহজ রান্নার জন্য air fryer"}
+{name:"Wireless Earbuds",price:"$39.99",image:"https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=600",link:AFFILIATE_LINK,desc:"জনপ্রিয় wireless earbuds"},
+{name:"Smart Watch",price:"$79.99",image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600",link:AFFILIATE_LINK,desc:"স্টাইলিশ স্মার্ট ওয়াচ"},
+{name:"Laptop",price:"$499.99",image:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600",link:AFFILIATE_LINK,desc:"দৈনন্দিন কাজের জন্য ল্যাপটপ"},
+{name:"Air Fryer",price:"$89.99",image:"https://images.unsplash.com/photo-1585515320310-259814833e62?w=600",link:AFFILIATE_LINK,desc:"সহজ রান্নার জন্য air fryer"}
 ];
-function getProducts(){return JSON.parse(localStorage.getItem("shopnexa_products")||"null")||defaultProducts}
+function getProducts(){const s=localStorage.getItem("shopnexa_products");if(!s){return defaultProducts}try{const p=JSON.parse(s);return p.length===0?[]:p}catch(e){return defaultProducts}}
 function save(p){localStorage.setItem("shopnexa_products",JSON.stringify(p))}
 function render(filter=""){
- const box=document.getElementById("products"); box.innerHTML="";
- getProducts().filter(p=>p.name.toLowerCase().includes(filter.toLowerCase())).forEach((p,i)=>{
-  box.innerHTML+=`<article class="card"><img src="${p.image||'https://via.placeholder.com/600x400?text=ShopNexa'}" onerror="this.src='https://via.placeholder.com/600x400?text=ShopNexa'"><h3>${escapeHtml(p.name)}</h3><p>${escapeHtml(p.desc||"")}</p><div class="price">${escapeHtml(p.price)}</div><a class="amazon" href="${safeLink(p.link)}" target="_blank" rel="nofollow sponsored noopener">🛒 Buy on Amazon</a></article>`;
- });
+const box=document.getElementById("products");box.innerHTML="";
+getProducts().filter(p=>p.name.toLowerCase().includes(filter.toLowerCase())).forEach((p)=>{
+const finalLink=(p.link==="#"||!p.link)?AFFILIATE_LINK:p.link;
+box.innerHTML+=`<article class="card"><img src="${p.image||'https://via.placeholder.com/600x400?text=ShopNexa'}" onerror="this.src='https://via.placeholder.com/600x400?text=ShopNexa'"><h3>${escapeHtml(p.name)}</h3><p>${escapeHtml(p.desc||"")}</p><div class="price">${escapeHtml(p.price)}</div><a class="amazon" href="${safeLink(finalLink)}" target="_blank" rel="nofollow sponsored noopener">🛒 Buy on Amazon</a></article>`;
+});
 }
-function addProduct(){
- const p={name:name.value.trim(),price:price.value.trim(),image:image.value.trim(),link:link.value.trim(),desc:desc.value.trim()};
- if(!p.name||!p.price||!p.link){alert("নাম, দাম এবং Amazon Affiliate Link দিন।");return}
- const arr=getProducts();arr.unshift(p);save(arr);render();document.querySelectorAll(".admin input,.admin textarea").forEach(x=>x.value="");alert("পণ্য যোগ হয়েছে!");
-}
-function clearProducts(){if(confirm("ডেমো পণ্যগুলো মুছে ফেলবেন?")){localStorage.setItem("shopnexa_products","[]");render()}}
+function addProduct(){const p={name:name.value.trim(),price:price.value.trim(),image:image.value.trim(),link:link.value.trim()||AFFILIATE_LINK,desc:desc.value.trim()};if(!p.name||!p.price){alert("নাম, দাম দিন।");return}const arr=getProducts();arr.unshift(p);save(arr);render();document.querySelectorAll(".admin input,.admin textarea").forEach(x=>x.value="");alert("পণ্য যোগ হয়েছে!");}
+function clearProducts(){if(confirm("ডেমো পণ্যগুলো মুছে ফেলবেন?")){localStorage.removeItem("shopnexa_products");render()}}
 function escapeHtml(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
-function safeLink(s){try{let u=new URL(s);return /^https?:$/.test(u.protocol)?u.href:"#"}catch(e){return "#"}}
+function safeLink(s){try{let u=new URL(s);return /^https?:$/.test(u.protocol)?u.href:AFFILIATE_LINK}catch(e){return AFFILIATE_LINK}}
 search.addEventListener("input",e=>render(e.target.value));render();
 </script>
 </body>
