@@ -1,65 +1,42 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShopNexa Live</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#f4f6f9;color:#222}
+header{background:#102a43;color:white;text-align:center;padding:22px}
+.container{max-width:1000px;margin:auto;padding:15px}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.card{background:white;border-radius:12px;padding:10px;text-align:center;box-shadow:0 2px 8px #ddd}
+.card img{width:100%;height:140px;object-fit:contain}
+.price{color:#087443;font-weight:bold}
+.btn{display:inline-block;background:#ff9900;color:#111;padding:10px;border-radius:6px;text-decoration:none;font-weight:bold}
+.notice{text-align:center;font-size:13px;color:#555}
+@media(min-width:700px){.products{grid-template-columns:repeat(4,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<header><h1>ShopNexa Live</h1><p>আপনার পছন্দের পণ্য, এক জায়গায়!</p></header>
+<p class="notice">As an Amazon Associate, I earn from qualifying purchases.</p>
+<main class="container"><h2>🛍️ জনপ্রিয় পণ্য</h2><div id="products" class="products"></div></main>
 <script>
-  const AFFILIATE_TAG = "shopnexa070-20";
-
-  // ডিফল্ট প্রোডাক্ট লিস্ট
-  const defaultProducts =[
-    {
-   p: "Wireless Earbuds",
-    price: "$29.99",
-    image: "https://images.unsplash.com/photo-1500658268037-6bf1216a5a8f?w=500",
-    link: "https://amzn.to/4hGcMAE"
-  },
-    {
-      p: "Smart Watch",
-      price: "$49.99",
-      image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500",
-      link: "https://www.amazon.com/dp/B08N5WRWNW"
-    },
-    {
-      p: "Laptop",
-      price: "$499.99",
-      image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500",
-      link: "https://www.amazon.com/dp/B08N5WRWNW"
-    }
-  ];
-
-  // LocalStorage থেকে প্রোডাক্ট লোড করার ফাংশন
-  function getProducts() {
-    const saved = localStorage.getItem("shopnexa_products");
-    return saved ? JSON.parse(saved) : defaultProducts;
-  }
-
-  // LocalStorage এ প্রোডাক্ট সেভ করার ফাংশন
-  function save(products) {
-    localStorage.setItem("shopnexa_products", JSON.stringify(products));
-  }
-
-  // প্রোডাক্ট শো করার প্রধান ফাংশন
-  function render() {
-    const grid = document.getElementById("products");
-    if (!grid) return;
-
-    const products = getProducts();
-    grid.innerHTML = ""; // আগের ডাটা ক্লিয়ার করা
-
-    products.forEach(p => {
-      let affLink = p.link || "#";
-      if (affLink.includes("amazon.com") && !affLink.includes("tag=")) {
-        affLink += (affLink.includes("?") ? "&" : "?") + "tag=" + AFFILIATE_TAG;
-      }
-
-      const card = document.createElement("div");
-      card.className = "card";
-      card.innerHTML = `
-        <img src="${p.image || 'https://via.placeholder.com/300'}" alt="${p.p}">
-        <h3>${p.p}</h3>
-        <p class="price">${p.price}</p>
-        <a href="${affLink}" target="_blank" class="btn">এখনই কিনুন →</a>
-      `;
-      grid.appendChild(card);
-    });
-  }
-
-  // পেজ লোড হলে প্রোডাক্ট রেন্ডার হবে
-  document.addEventListener("DOMContentLoaded", render);
+const products=[
+{p:"Wireless Earbuds",price:"$29.99",image:"https://images.unsplash.com/photo-1500658268037-6bf1216a5a8f?w=500",link:"https://amzn.to/4hGcMAE"},
+{p:"Smart Watch",price:"Amazon-এ দাম দেখুন",image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500",link:"https://www.amazon.com/dp/B08N5WRWNW?tag=shopnexa070-20"},
+{p:"Laptop",price:"Amazon-এ দাম দেখুন",image:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500",link:"https://www.amazon.com/dp/B08N5WRWNW?tag=shopnexa070-20"},
+{p:"Featured Product",price:"Amazon-এ দাম দেখুন",image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500",link:"https://amzn.to/476pvI5"}
+];
+const grid=document.getElementById("products");
+products.forEach(p=>{
+const card=document.createElement("article");card.className="card";
+const img=document.createElement("img");img.src=p.image;img.alt=p.p;
+const title=document.createElement("h3");title.textContent=p.p;
+const price=document.createElement("p");price.className="price";price.textContent=p.price;
+const a=document.createElement("a");a.className="btn";a.textContent="এখনই কিনুন →";a.href=p.link;a.target="_blank";a.rel="noopener noreferrer sponsored";
+card.append(img,title,price,a);grid.appendChild(card);
+});
 </script>
+</body>
+</html>
