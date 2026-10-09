@@ -4,39 +4,195 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ShopNexa Live</title>
+
 <style>
-body{margin:0;font-family:Arial,sans-serif;background:#f4f6f9;color:#222}
-header{background:#102a43;color:white;text-align:center;padding:22px}
-.container{max-width:1000px;margin:auto;padding:15px}
-.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.card{background:white;border-radius:12px;padding:10px;text-align:center;box-shadow:0 2px 8px #ddd}
-.card img{width:100%;height:140px;object-fit:contain}
-.price{color:#087443;font-weight:bold}
-.btn{display:inline-block;background:#ff9900;color:#111;padding:10px;border-radius:6px;text-decoration:none;font-weight:bold}
-.notice{text-align:center;font-size:13px;color:#555}
-@media(min-width:700px){.products{grid-template-columns:repeat(4,minmax(0,1fr))}}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6fa;
+  color: #222;
+}
+
+header {
+  background: #102a43;
+  color: white;
+  text-align: center;
+  padding: 30px 12px;
+}
+
+header h1 {
+  font-size: 32px;
+  margin: 0;
+}
+
+header p {
+  font-size: 17px;
+}
+
+.notice {
+  background: white;
+  padding: 14px 8px;
+  text-align: center;
+  font-size: 12px;
+  color: #555;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 16px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.card {
+  background: white;
+  border-radius: 14px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 3px 12px #00000012;
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.card h3 {
+  font-size: 17px;
+  min-height: 40px;
+}
+
+.price {
+  color: #087443;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.btn {
+  display: block;
+  background: #ff9900;
+  color: #111;
+  padding: 12px 5px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+.btn:hover {
+  background: #f5b333;
+}
+
+footer {
+  background: #102a43;
+  color: white;
+  text-align: center;
+  padding: 22px 10px;
+  margin-top: 25px;
+}
+
+@media (min-width: 700px) {
+  .products {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .card img {
+    height: 190px;
+  }
+}
 </style>
 </head>
+
 <body>
-<header><h1>ShopNexa Live</h1><p>আপনার পছন্দের পণ্য, এক জায়গায়!</p></header>
-<p class="notice">As an Amazon Associate, I earn from qualifying purchases.</p>
-<main class="container"><h2>🛍️ জনপ্রিয় পণ্য</h2><div id="products" class="products"></div></main>
+
+<header>
+  <h1>ShopNexa Live</h1>
+  <p>আপনার পছন্দের পণ্য, এক জায়গায়!</p>
+</header>
+
+<div class="notice">
+  As an Amazon Associate, I earn from qualifying purchases.
+</div>
+
+<main class="container">
+  <h2>🛍️ জনপ্রিয় পণ্য</h2>
+  <div class="products" id="products"></div>
+</main>
+
+<footer>
+  <h3>ShopNexa Live ❤️</h3>
+  <p>আপনার অনলাইন শপিং সঙ্গী</p>
+  <p>© 2026 ShopNexa Live</p>
+</footer>
+
 <script>
-const products=[
-{p:"Wireless Earbuds",price:"$29.99",image:"https://images.unsplash.com/photo-1500658268037-6bf1216a5a8f?w=500",link:"https://amzn.to/4hGcMAE"},
-{p:"Smart Watch",price:"Amazon-এ দাম দেখুন",image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500",link:"https://www.amazon.com/dp/B08N5WRWNW?tag=shopnexa070-20"},
-{p:"Laptop",price:"Amazon-এ দাম দেখুন",image:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500",link:"https://www.amazon.com/dp/B08N5WRWNW?tag=shopnexa070-20"},
-{p:"Featured Product",price:"Amazon-এ দাম দেখুন",image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500",link:"https://amzn.to/476pvI5"}
+const products = [
+  {
+    name: "Wireless Earbuds",
+    image: "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=500",
+    link: "https://amzn.to/4hGcMAE"
+  },
+  {
+    name: "Smart Watch",
+    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500",
+    link: "https://www.amazon.com/dp/B08N5WRWNW?tag=shopnexa070-20"
+  },
+  {
+    name: "Laptop",
+    image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500",
+    link: "https://www.amazon.com/dp/B08N5WRWNW?tag=shopnexa070-20"
+  },
+  {
+    name: "Featured Product",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500",
+    link: "https://amzn.to/476pvI5"
+  }
 ];
-const grid=document.getElementById("products");
-products.forEach(p=>{
-const card=document.createElement("article");card.className="card";
-const img=document.createElement("img");img.src=p.image;img.alt=p.p;
-const title=document.createElement("h3");title.textContent=p.p;
-const price=document.createElement("p");price.className="price";price.textContent=p.price;
-const a=document.createElement("a");a.className="btn";a.textContent="এখনই কিনুন →";a.href=p.link;a.target="_blank";a.rel="noopener noreferrer sponsored";
-card.append(img,title,price,a);grid.appendChild(card);
+
+const grid = document.getElementById("products");
+
+products.forEach(product => {
+  const card = document.createElement("article");
+  card.className = "card";
+
+  const img = document.createElement("img");
+  img.src = product.image;
+  img.alt = product.name;
+  img.loading = "lazy";
+
+  img.onerror = function() {
+    this.style.display = "none";
+  };
+
+  const title = document.createElement("h3");
+  title.textContent = product.name;
+
+  const price = document.createElement("p");
+  price.className = "price";
+  price.textContent = "Amazon-এ দাম দেখুন";
+
+  const button = document.createElement("a");
+  button.className = "btn";
+  button.textContent = "এখনই কিনুন →";
+  button.href = product.link;
+  button.target = "_blank";
+  button.rel = "noopener noreferrer sponsored";
+
+  card.append(img, title, price, button);
+  grid.appendChild(card);
 });
 </script>
+
 </body>
 </html>
