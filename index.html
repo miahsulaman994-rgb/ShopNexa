@@ -24,4 +24,20 @@ const card=document.createElement("article");card.className="card";
 const img=document.createElement("img");img.src=p.image;img.alt=p.p;
 const title=document.createElement("h3");title.textContent=p.p;
 const price=document.createElement("p");price.className="price";price.textContent=p.price;
-const a=doc
+const a = document.createElement("a");
+a.className = "btn";
+a.href = p.link;
+a.target = "_blank";
+a.rel = "nofollow sponsored noopener";
+a.textContent = "Amazon-এ কিনুন →";
+
+card.appendChild(img);
+card.appendChild(title);
+card.appendChild(price);
+card.appendChild(a);
+
+grid.appendChild(card);
+});
+</script>
+</body>
+</html>
