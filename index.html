@@ -3,58 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ShopNexa Live - Best Amazon Finds</title>
+<title>ShopNexa Live</title>
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50">
 <div class="max-w-6xl mx-auto p-4">
 <h1 class="text-4xl font-black text-center mt-6">ShopNexa Live</h1>
-<p class="text-center text-lg mt-2">আপনার পছন্দের পণ্য, এক জায়গায়!</p>
-<p class="text-center text-sm text-gray-500 mt-2">As an Amazon Associate, I earn from qualifying purchases.</p>
-
+<p class="text-center mt-2">আপনার পছন্দের পণ্য, এক জায়গায়!</p>
+<p class="text-center text-sm text-gray-500 mt-1">As an Amazon Associate, I earn from qualifying purchases.</p>
 <h2 class="text-2xl font-bold mt-8 mb-4">🛍️ জনপ্রিয় পণ্য</h2>
-<div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+<div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
 </div>
-
 <script>
-const defaultProducts = [
-{
-title: "Sweejar Lotus Tea Infuser Mug 16oz - Amazon's Choice",
-price: "4.8★ (2,728) - Best Seller!",
-image: "https://images.unsplash.com/photo-1514228742587-6b1558fcf93a?auto=format&fit=crop&w=600&q=80
-link: "https://www.amazon.com/dp/B0EF0Q094?tag=shopnexa070-20"
-},
-{
-title: "Smart Watch - Amazon Best Seller",
-price: "Amazon-এ দাম দেখুন",
-image: "https://images.unsplash.com/photo-1523275335684-37898b6b30ce?auto=format&fit=crop&w=600&q=80
-link: "https://www.amazon.com/s?k=smart+watch&tag=shopnexa070-20"
-},
-{
-title: "Laptop Stand - Top Rated",
-price: "Amazon-এ দাম দেখুন",
-image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600",
-link: "https://www.amazon.com/s?k=laptop&tag=shopnexa070-20"
-},
-{
-title: "Wireless Earbuds - 2024 Choice",
-price: "Amazon-এ দাম দেখুন",
-image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600",
-link: "https://www.amazon.com/s?k=earbuds&tag=shopnexa070-20"
-}
+var products = [
+{title: "Sweejar Lotus Tea Mug 16oz - Amazon Choice", price: "4.8 Star - 2728 Reviews", img: "https://images.unsplash.com/photo-1514228742587-6b1558fcf93a?w=600&q=80", url: "https://www.amazon.com/dp/B0EF0Q094?tag=shopnexa070-20"},
+{title: "Smart Watch - Best Seller", price: "Amazon Price", img: "https://images.unsplash.com/photo-1523275335684-37898b6b30ce?w=600&q=80", url: "https://www.amazon.com/s?k=smart+watch&tag=shopnexa070-20"},
+{title: "Laptop Stand", price: "Amazon Price", img: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&q=80", url: "https://www.amazon.com/s?k=laptop+stand&tag=shopnexa070-20"},
+{title: "Wireless Earbuds", price: "Amazon Price", img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80", url: "https://www.amazon.com/s?k=earbuds&tag=shopnexa070-20"}
 ];
-
-const grid = document.getElementById('product-grid');
-defaultProducts.forEach(p => {
-grid.innerHTML += `
-<div class="bg-white rounded-xl shadow p-4 flex flex-col">
-<img src="${p.image}" class="h-48 w-full object-cover rounded-lg">
-<h3 class="font-bold mt-3">${p.title}</h3>
-<p class="text-sm text-green-600 mt-1">${p.price}</p>
-<a href="${p.link}" target="_blank" class="mt-4 bg-black text-white text-center py-2 rounded-lg font-bold">Amazon-এ কিনুন</a>
-</div>
-`;
-});
+var grid = document.getElementById("product-grid");
+for(var i=0; i<products.length; i++){
+var p = products[i];
+grid.innerHTML = grid.innerHTML + '<div class="bg-white rounded-xl shadow p-4"><img src="'+p.img+'" class="h-56 w-full object-cover rounded-lg"><h3 class="font-bold mt-3">'+p.title+'</h3><p class="text-sm text-green-600 mt-1">'+p.price+'</p><a href="'+p.url+'" target="_blank" class="block mt-4 bg-black text-white text-center py-2 rounded-lg font-bold">Amazon-এ কিনুন</a></div>';
+}
 </script>
 </body>
 </html>
