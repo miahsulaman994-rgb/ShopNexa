@@ -1,18 +1,25 @@
-.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ShopNexa Live</title>
+<style>
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px}
 .card{background:white;border-radius:12px;padding:10px;text-align:center;box-shadow:0 2px 8px #ddd}
 .card img{width:100%;height:140px;object-fit:contain}
 .price{color:#087443;font-weight:bold}
-.btn{display:inline-block;background:#ff9900;color:#111;padding:10px;border-radius:6px;text-decoration:none;font-weight:bold}
+.btn{display:inline-block;background:#ff9900;color:#111;padding:10px;border-radius:6px;text-decoration:none;font-weight:bold;margin-top:5px}
 .notice{text-align:center;font-size:13px;color:#555}
 @media(min-width:700px){.products{grid-template-columns:repeat(4,minmax(0,1fr))}}
 </style>
 </head>
 <body>
-<header><h1>ShopNexa Live</h1><p>আপনার পছন্দের পণ্য, এক জায়গায়!</p></header>
+<header><h1>ShopNexa Live</h1><p>আপনার পছন্দের পণ্য, এক জায়গায়!</p></header>
 <p class="notice">As an Amazon Associate, I earn from qualifying purchases.</p>
-<main class="container"><h2>🛍️ জনপ্রিয় পণ্য</h2><div id="products" class="products"></div></main>
+<main class="container"><h2>🛍️ জনপ্রিয় পণ্য</h2><div id="products" class="products"></div></main>
 <script>
-const products=[ { 
+const products=[
   {
     p: "Boho Ceramic Tea Mug 18oz - Amazon's Choice",
     price: "4.8★ (543) - Best Seller!",
@@ -34,13 +41,11 @@ a.className = "btn";
 a.href = p.link;
 a.target = "_blank";
 a.rel = "nofollow sponsored noopener";
-a.textContent = "Amazon-এ কিনুন →";
-
+a.textContent = "Amazon-এ কিনুন 🛒";
 card.appendChild(img);
 card.appendChild(title);
 card.appendChild(price);
 card.appendChild(a);
-
 grid.appendChild(card);
 });
 </script>
